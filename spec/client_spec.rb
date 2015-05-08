@@ -1,9 +1,5 @@
 #TODO: test
-  #name
-  #.all
-  #save
   #update
-    #contact_info ??
     #stylist
   #delete
 

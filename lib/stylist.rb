@@ -33,4 +33,9 @@ class Stylist
   def ==(other)
     self.name == other.name
   end
+
+  def delete
+    DB.exec("DELETE FROM stylists WHERE id = #{self.id};")
+  end
+
 end

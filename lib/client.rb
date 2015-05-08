@@ -22,7 +22,7 @@ class Client
     returned_clients.each do |client| #client is a pg object
       name = client.fetch("name")
       id = client.fetch("id").to_i
-      stylist_id = client.fetch("stylist")
+      stylist_id = client.fetch("stylist_id")
       clients.push(Client.new(name: name, id: id, stylist_id: stylist_id))
     end
     clients

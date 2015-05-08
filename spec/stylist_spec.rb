@@ -1,6 +1,4 @@
 #TODO: test
-  #delete
-  #get_clients
   #update:
     #remove_client
     #add_client
@@ -46,4 +44,18 @@ describe(Stylist) do
       expect(Stylist.all).to eq([mel])
     end
   end
+
+  describe('#delete') do
+    it('deletes an entry from the DB') do
+      mel = Stylist.new(name: "Mel")
+      mel.save
+      mel.delete
+      expect(Stylist.all).to eq([])
+    end
+  end
+
+  describe('#get_clients') do
+
+  end
+
 end
