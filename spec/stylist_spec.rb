@@ -49,7 +49,7 @@ describe(Stylist) do
     end
   end
 
-  describe('add_client') do
+  describe('#add_client and #get_clients') do
     it('adds a stylist id to the client table') do
       mel = Stylist.new(name: "Mel")
       mel.save
@@ -59,21 +59,22 @@ describe(Stylist) do
       # and then recreate her with the same id from the DB
       # This is *super* akward and should be refactored
       id = jane.id
-      jane = Client.new(name: "Jane", id: id)
+      stylist_id = mel.id
+      jane = Client.new(name: "Jane", id: id, stylist_id: stylist_id)
       mel.add_client(jane)
-      expect(mel.get_clients).to eq(jane)
+      expect(mel.get_clients).to eq([jane])
     end
   end
 
-  describe('#get_clients') do
-    it("returns the stylist's list of clients") do
-      client1 = Client.new(name: "Mel")
-      client2 = Client.new(name: "Jane")
-      client1.save
-      client2.save
-      #TODO: This test requires the add_client method...
-    end
-  end
+  # describe('#get_clients') do
+  #   it("returns the stylist's list of clients") do
+  #     client1 = Client.new(name: "Mel")
+  #     client2 = Client.new(name: "Jane")
+  #     client1.save
+  #     client2.save
+  #     #TODO: This test requires the add_client method...
+  #   end
+  # end
 
   describe('#remove_client') do
     it('') do

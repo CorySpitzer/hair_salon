@@ -1,6 +1,5 @@
 class Client
-  attr_accessor :name, :stylist_id
-  attr_reader :id
+  attr_accessor :name, :stylist_id, :id
 
   def initialize(attributes)
     @name = attributes.fetch(:name)

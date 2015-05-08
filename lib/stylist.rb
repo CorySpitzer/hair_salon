@@ -45,9 +45,23 @@ class Stylist
   end
 
   def get_clients
-
+    clients = []
+    pg_results = DB.exec("SELECT * FROM clients WHERE stylist_id = #{self.id};")
+    pg_results.each do |row| # row is hash
+      name = row.fetch("name")
+      id = row.fetch("id").to_i
+# binding.pry
+      clients.push(Client.new(name: name, id: id))
+    end
+    clients
   end
+
 end
+
+
+
+
+
 
 
 
