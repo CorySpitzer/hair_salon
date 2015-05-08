@@ -1,7 +1,4 @@
 #TODO: test
-  #name
-  #.all
-  #save
   #delete
   #get_clients
   #update:
@@ -33,7 +30,16 @@ describe(Stylist) do
     end
   end
 
-  describe('#save and .all') do
+  describe('#==') do
+    #TODO?: add comparison of ids?
+    it('returns true if the names are equal') do
+      mel = Stylist.new(name: "Mel")
+      mel_2 = Stylist.new(name: "Mel")
+      expect(mel.==(mel_2)).to eq(true)
+    end
+  end
+
+  describe('#save, .all, and #==') do
     it('adds a stylist to the DB and returns an array of all the stylists') do
       mel = Stylist.new(name: "Mel")
       mel.save

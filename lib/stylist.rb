@@ -29,4 +29,8 @@ class Stylist
                          VALUES ('#{@name}') RETURNING id;")
     @id = pg_result[0].fetch('id').to_i
   end
+
+  def ==(other)
+    self.name == other.name
+  end
 end
