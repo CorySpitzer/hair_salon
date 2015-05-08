@@ -20,19 +20,22 @@ describe('the app', :type => :feature) do
 
   describe('posting to the stylists path') do
     it('it adds a stylist to the list of all the stylists') do
-
+      visit('/')
+      fill_in('stylist_name', with: "Jill")
+      click_button('Add Stylist')
+      expect(page).to have_content('Jill')
     end
   end
 
-  describe('') do
-    it('') do
-
-    end
-  end
-
-  describe('') do
-    it('') do
-
-    end
-  end
+  # describe('') do
+  #   it('') do
+  #     visit('/')
+  #   end
+  # end
+  #
+  # describe('') do
+  #   it('') do
+  #
+  #   end
+  # end
 end
