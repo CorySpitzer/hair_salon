@@ -13,3 +13,26 @@ DB = PG.connect({:dbname => "hair_salon"})
 get('/') do
   erb(:index)
 end
+
+get('/stylists') do
+  @stylists = Stylist.all
+  erb(:stylists)
+end
+
+post('/stylists') do
+  name = params.fetch("stylist_name")
+  stylist = Stylist.new(name: name)
+  stylist.save
+  @stylists = Stylist.all
+  erb(:stylists)
+end
+
+get('/clients') do
+  @clients = Client.all
+  erb(:clients)
+end
+
+post('/clients') do
+  @clients = Client.all
+  erb(:clients)
+end
