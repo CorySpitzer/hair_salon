@@ -2,6 +2,8 @@ class Stylist
   attr_accessor :name
   attr_reader :id
 
+  #TODO: .find
+
   def initialize(attributes)
     @name = attributes.fetch(:name)
     if attributes.has_key?(:id)

@@ -1,6 +1,8 @@
 class Client
   attr_accessor :name, :stylist_id, :id
 
+  #TODO: .find
+
   def initialize(attributes)
     @name = attributes.fetch(:name)
     if attributes.has_key?(:stylist_id)
