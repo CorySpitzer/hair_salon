@@ -38,4 +38,23 @@ class Stylist
     DB.exec("DELETE FROM stylists WHERE id = #{self.id};")
   end
 
+  def add_client(client)
+    # if self.id is nil, then we get a SQL error
+    DB.exec("UPDATE clients SET stylist_id = #{self.id}
+             WHERE id = #{client.id};")
+  end
+
+  def get_clients
+
+  end
 end
+
+
+
+
+
+
+
+
+
+#
